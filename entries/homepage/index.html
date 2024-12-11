@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Text and Small Image</title>
+  <!-- Link to Google Fonts for Lilita One font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('homebackground.avif') no-repeat center center fixed; /* Set homebackground.avif as the background */
+      background-size: cover; /* Make the background cover the entire viewport */
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Glowing Text Style */
+    .glowing-text {
+      font-size: 60px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      animation: glow 1.5s ease-in-out infinite;
+      font-family: 'Lilita One', cursive; /* Apply Lilita One font */
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #ffb6c1, 0 0 10px #ffb6c1, 0 0 20px #ffb6c1, 0 0 30px #ffb6c1;
+      }
+      50% {
+        text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ffb6c1, 0 0 30px #ffb6c1, 0 0 40px #ffb6c1;
+      }
+      100% {
+        text-shadow: 0 0 5px #ffb6c1, 0 0 10px #ffb6c1, 0 0 20px #ffb6c1, 0 0 30px #ffb6c1;
+      }
+    }
+
+    /* Image Style */
+    .random-image {
+      display: none;
+      margin-top: 20px;
+      width: 150px; /* Set width to make image very small */
+      height: 150px; /* Set height to make image very small */
+      border: none; /* Remove border */
+      box-shadow: none; /* Remove shadow */
+      cursor: pointer; /* Add pointer cursor to indicate it is clickable */
+    }
+  </style>
+</head>
+<body>
+  <!-- Glowing Text -->
+  <div class="glowing-text">LET'S HAVE SOME FUN!</div>
+
+  <!-- Random Image (Initially hidden) -->
+  <img class="random-image" id="randomImage" src="" alt="Random Image">
+
+  <script>
+    // Path to the specific image you want to display
+    const imagePath = "pinkt.png"; // Ensure the file is in the same directory as your HTML file
+
+    // Path to the page to navigate to
+    const targetPage = "file:///Users/sxnneola/Desktop/Chang_CIF24/entries/homepage2/index1.html";
+
+    // Function to show the image when user clicks anywhere on the page
+    document.body.addEventListener('click', function () {
+      // Get the image element
+      const randomImage = document.getElementById('randomImage');
+      
+      // Set the source of the image to the "pinkt.png"
+      randomImage.src = imagePath;
+
+      // Display the image
+      randomImage.style.display = 'block';
+
+      // Add a click event to the image to redirect the user
+      randomImage.addEventListener('click', function () {
+        window.location.href = targetPage;
+      });
+    });
+  </script>
+
+</body>
+</html>

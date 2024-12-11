@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered YouTube Video with Pop-up Image</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('dorabackground.jpeg') no-repeat center center fixed; /* Background image */
+      background-size: cover; /* Scale image to cover the entire background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      position: relative; /* To enable absolute positioning of other elements */
+    }
+
+    iframe {
+      width: 560px; /* Default YouTube video width */
+      height: 315px; /* Default YouTube video height */
+      border: none; /* Remove iframe border */
+    }
+
+    /* Style for the clickable home image (home2.png) */
+    .home-img {
+      position: absolute; /* Positioning image relative to the body */
+      top: 36px; /* Position image 20px from the top */
+      left: 33px; /* Position image 20px from the left */
+      width: 80px; /* Image size */
+      cursor: pointer; /* Makes the image clickable */
+      transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .home-img:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Style for the popup image (Dora) */
+    .popup-image {
+      position: fixed;
+      bottom: 40px; /* Position higher */
+      left: 40px; /* Slightly to the right */
+      width: 150px; /* Increased size of the image */
+      height: auto;
+      transition: transform 0.3s ease; /* Smooth hover effect */
+      opacity: 0;
+    }
+
+    .popup-image.show {
+      opacity: 1;
+    }
+
+    .popup-image:hover {
+      transform: scale(1.2); /* Slight zoom on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Embedded YouTube Video with Autoplay and Mute -->
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/xlkH17apLMY?autoplay=1&mute=1&si=0XomX0lkoSfQV_2V" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Popup Image (Dora) wrapped in an anchor tag for redirection -->
+  <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry2a/index13.html">
+    <img src="dora.png" alt="Dora" class="popup-image" id="popupImage">
+  </a>
+
+  <!-- Home Image (Clickable to go back) -->
+  <img src="home2.png" alt="Home" class="home-img" onclick="goBack()">
+
+  <script>
+    // Function to show the popup image after 3 seconds
+    setTimeout(() => {
+      const popupImage = document.getElementById('popupImage');
+      popupImage.classList.add('show');
+    }, 3000); // 3 seconds
+
+    // Function to go back to the previous page in history
+    function goBack() {
+      window.history.back(); // Go back to the previous page in the browser history
+    }
+  </script>
+</body>
+</html>

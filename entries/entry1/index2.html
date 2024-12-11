@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Time Video</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      background: url('adventuretimebg.jpg') no-repeat center center fixed; /* Background image */
+      background-size: cover; /* Ensure the image covers the entire page */
+      font-family: Arial, sans-serif;
+      position: relative; /* To enable absolute positioning of other elements */
+    }
+
+    iframe {
+      width: 560px; /* YouTube video width */
+      height: 315px; /* YouTube video height */
+      border: none; /* Remove iframe border */
+    }
+
+    /* Style for the clickable home image */
+    .home-img {
+      position: absolute; /* Positioning image relative to the body */
+      top: 36px; /* Position image 20px from the top */
+      left: 33px; /* Position image 20px from the left */
+      width: 80px; /* Image size */
+      cursor: pointer; /* Makes the image clickable */
+      transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .home-img:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Style for the popup image (Finn and Jake) */
+    .popup-image {
+      position: fixed;
+      bottom: 15px; /* Position near the bottom */
+      left: 25px; /* Position near the left */
+      width: 200px; /* Increased size of the image */
+      height: auto; /* Maintain aspect ratio */
+      display: none; /* Initially hidden */
+      transition: transform 0.3s ease, opacity 0.5s ease-in-out; /* Smooth appearance and hover effect */
+      cursor: pointer; /* Makes the image clickable */
+    }
+
+    .popup-image.show {
+      display: block; /* Show the image */
+      opacity: 1; /* Fully visible */
+    }
+
+    .popup-image:hover {
+      transform: scale(1.1); /* Slight zoom on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Embedded YouTube Video -->
+  <iframe 
+    id="video" 
+    src="https://www.youtube.com/embed/cvDxko2Zm0Q?autoplay=1&mute=1&si=anLCiRy6HPolw5js" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Image that will pop up (Finn and Jake) -->
+  <a href="https://sxnneola.github.io/sarahchangcif.github.io/entry1a/index12.html">
+    <img id="popupImage" class="popup-image" src="finnandjake.png" alt="Finn and Jake">
+  </a>
+
+  <!-- Home Image (Clickable to go back) -->
+  <img src="home1.png" alt="Home" class="home-img" onclick="goBack()">
+
+  <script>
+    // Function to show the Finn and Jake image after 3 seconds
+    function showPopupImage() {
+      const popupImage = document.getElementById('popupImage');
+      popupImage.classList.add('show'); // Add the "show" class to display the image
+    }
+
+    // Set a timeout for 3 seconds to display the image
+    setTimeout(showPopupImage, 3000);
+
+    // Function to go back to the previous page in history
+    function goBack() {
+      window.history.back(); // Go back to the previous page in the browser history
+    }
+  </script>
+</body>
+</html>

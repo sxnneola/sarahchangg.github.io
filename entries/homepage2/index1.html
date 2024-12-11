@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Photo Gallery with Glow Effects</title>
+  <style>
+    body {
+      background: url('skybackground.png') no-repeat center center fixed; /* Set skybackground.png as the background */
+      background-size: cover; /* Ensure the background image covers the entire viewport */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0; /* Adjust spacing between rows */
+    }
+
+    .gallery-row img {
+      max-width: 100%;
+      height: auto;
+      width: 250px; /* Increased size of images */
+      margin: 0 10px; /* Adjust spacing between images */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    /* Glow effects for each specific image */
+    img[src="mylittlepony.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #8abc69;
+    }
+
+    img[src="dora.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #e96d9d;
+    }
+
+    img[src="minions.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #f7cf59;
+    }
+
+    img[src="tayo.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #4b9ceb;
+    }
+
+    img[src="hachuping.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #d14a88;
+    }
+
+    img[src="spongebob.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #e3e85d;
+    }
+
+    img[src="powerpuffgirls.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ee7c01;
+    }
+
+    img[src="sofiathefirst.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #a887bb;
+    }
+
+    img[src="hellojadoo.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #e43620;
+    }
+
+    img[src="pororo.png"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #0a66aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-row">
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry1/index2.html">
+      <img src="mylittlepony.png" alt="Image 1">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry2/index3.html">
+      <img src="dora.png" alt="Image 2">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry3/index4.html">
+      <img src="minions.png" alt="Image 3">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry4/index5.html">
+      <img src="tayo.png" alt="Image 4">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry5/index6.html">
+      <img src="hachuping.png" alt="Image 5">
+    </a>
+  </div>
+  <div class="gallery-row">
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry6/index7.html">
+      <img src="spongebob.png" alt="Image 6">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry7/index8.html">
+      <img src="powerpuffgirls.png" alt="Image 7">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry8/index9.html">
+      <img src="sofiathefirst.png" alt="Image 8">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry9/index10.html">
+      <img src="hellojadoo.png" alt="Image 9">
+    </a>
+    <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry10/index11.html">
+      <img src="pororo.png" alt="Image 10">
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered YouTube Video</title>
+  <style>
+    body {
+      margin: 0;
+      /* Add multiple background images, skybackground.png as the first layer and pororobackground.webp as the second layer */
+      background: url('skybackground.png') no-repeat center center fixed, 
+                  url('pororobackground.webp') no-repeat center center fixed;
+      background-size: cover; /* Scale images to cover the entire background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      position: relative; /* Enables absolute positioning of other elements */
+    }
+
+    iframe {
+      width: 560px; /* Default YouTube video width */
+      height: 315px; /* Default YouTube video height */
+      border: none; /* Remove iframe border */
+    }
+
+    /* Style for the clickable home image (home10.png) */
+    .home10-img {
+      position: absolute; /* Position image relative to the body */
+      top: 36px; /* Position image 20px from the top */
+      left: 33px; /* Position image 20px from the left */
+      width: 80px; /* Image size */
+      cursor: pointer; /* Makes the image clickable */
+      transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .home10-img:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Style for the Pororo image */
+    .pororo-img {
+      position: fixed;
+      bottom: 20px; /* Position it slightly above the bottom */
+      left: 45px; /* Position it slightly from the left */
+      width: 165px; /* Image size */
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and zoom effect */
+    }
+
+    .pororo-img.show {
+      opacity: 1; /* Make image appear after 3 seconds */
+    }
+
+    .pororo-img:hover {
+      transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Embedded YouTube Video with Autoplay and Mute -->
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/0PKiYRfbh6c?autoplay=1&mute=1&si=G80bWsjvhrkyrfCc" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Pororo Image wrapped in an anchor tag for redirection -->
+  <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry10a/index21.html">
+    <img src="pororo.png" alt="Pororo" class="pororo-img" id="pororoImage">
+  </a>
+
+  <!-- Home10 Image (Clickable to go back) -->
+  <img src="home10.png" alt="Home" class="home10-img" onclick="goBack()">
+
+  <script>
+    // Set a timer to show the Pororo image after 3 seconds of the video playing
+    setTimeout(function() {
+      const pororoImage = document.getElementById('pororoImage');
+      pororoImage.classList.add('show'); // Make image appear after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    // Function to go back to the previous page in history
+    function goBack() {
+      window.history.back(); // Go back to the previous page in the browser history
+    }
+  </script>
+</body>
+</html>

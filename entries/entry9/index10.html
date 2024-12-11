@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered YouTube Video</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('hellojadoobackground.webp') no-repeat center center fixed; /* Background image */
+      background-size: cover; /* Scale image to cover the entire background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      position: relative; /* Enables absolute positioning of other elements */
+    }
+
+    iframe {
+      width: 560px; /* Default YouTube video width */
+      height: 315px; /* Default YouTube video height */
+      border: none; /* Remove iframe border */
+    }
+
+    /* Style for the clickable home image (home9.png) */
+    .home9-img {
+      position: absolute; /* Position image relative to the body */
+      top: 36px; /* Position image 20px from the top */
+      left: 33px; /* Position image 20px from the left */
+      width: 80px; /* Image size */
+      cursor: pointer; /* Makes the image clickable */
+      transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .home9-img:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Style for the Hello Jadoo image */
+    .hello-jadoo-img {
+      position: fixed;
+      bottom: 20px; /* Position it slightly above the bottom */
+      left: 35px; /* Position it slightly from the left */
+      width: 150px; /* Image size */
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and zoom effect */
+    }
+
+    .hello-jadoo-img.show {
+      opacity: 1; /* Make image appear after 3 seconds */
+    }
+
+    .hello-jadoo-img:hover {
+      transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Embedded YouTube Video with Autoplay and Muted -->
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/J_M7b6nd6Wk?autoplay=1&mute=1&si=S8qZCmx32_nGjFdl" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Hello Jadoo Image wrapped in an anchor tag for redirection -->
+  <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry9a/index20.html">
+    <img src="hellojadoo.png" alt="Hello Jadoo" class="hello-jadoo-img" id="helloJadooImage">
+  </a>
+
+  <!-- Home9 Image (Clickable to go back) -->
+  <img src="home9.png" alt="Home" class="home9-img" onclick="goBack()">
+
+  <script>
+    // Set a timer to show the Hello Jadoo image after 3 seconds of the video playing
+    setTimeout(function() {
+      const helloJadooImage = document.getElementById('helloJadooImage');
+      helloJadooImage.classList.add('show'); // Make image appear after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    // Function to go back to the previous page in history
+    function goBack() {
+      window.history.back(); // Go back to the previous page in the browser history
+    }
+  </script>
+</body>
+</html>

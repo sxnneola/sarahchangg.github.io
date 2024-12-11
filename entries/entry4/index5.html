@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered YouTube Video</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('tayobackground.jpg') no-repeat center center fixed; /* Background image */
+      background-size: cover; /* Scale image to cover the entire background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      position: relative; /* Enables absolute positioning of other elements */
+    }
+
+    iframe {
+      width: 560px; /* Default YouTube video width */
+      height: 315px; /* Default YouTube video height */
+      border: none; /* Remove iframe border */
+    }
+
+    /* Style for the clickable home image (home4.png) */
+    .home-img {
+      position: absolute; /* Position image relative to the body */
+      top: 36px; /* Position image 20px from the top */
+      left: 33px; /* Position image 20px from the left */
+      width: 80px; /* Image size */
+      cursor: pointer; /* Makes the image clickable */
+      transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .home-img:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Style for the tayo image */
+    .tayo-img {
+      position: fixed;
+      bottom: 40px; /* Move the image up from the bottom */
+      left: 30px; /* Move the image slightly to the right */
+      width: 250px; /* Increased size of the image */
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and zoom effect */
+    }
+
+    .tayo-img.show {
+      opacity: 1; /* Show the image after 3 seconds */
+    }
+
+    .tayo-img:hover {
+      transform: scale(1.1); /* Slight zoom on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Embedded YouTube Video with Autoplay -->
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/DPZEPP0xUto?autoplay=1&mute=1&si=jlvQVm5RMLX6wIU4" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Tayo Image wrapped in an anchor tag for redirection -->
+  <a href="file:///Users/sxnneola/Desktop/Chang_CIF24/entries/entry4a/index15.html">
+    <img src="tayo.png" alt="Tayo" class="tayo-img" id="tayoImage">
+  </a>
+
+  <!-- Home Image (Clickable to go back) -->
+  <img src="home4.png" alt="Home" class="home-img" onclick="goBack()">
+
+  <script>
+    // Set a timer to show the Tayo image after 3 seconds of the video playing
+    setTimeout(function() {
+      const tayoImage = document.getElementById('tayoImage');
+      tayoImage.classList.add('show'); // Make image appear after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    // Function to go back to the previous page in history
+    function goBack() {
+      window.history.back(); // Go back to the previous page in the browser history
+    }
+  </script>
+</body>
+</html>
